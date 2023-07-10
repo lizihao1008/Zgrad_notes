@@ -1,0 +1,37 @@
+# strong line calibration coefficients given by Sanders+23
+
+name: 'Sanders+23'
+
+lrange: [6, 8] # Lower branch solution
+# urange: [7.9207,8.9] # upper branch solution
+urange: [7.7, 8.5] # upper branch solution
+
+norm: 0.
+
+OIII:
+    bestfit: [-27.582,7.176,-0.453]
+    # rms: 0.09
+    rms: 0.05
+
+OII:
+    bestfit: [-8.485,1.069]
+    # rms: 0.22
+    rms: 0.05
+
+#R23:
+#    bestfit: [138.0430, -54.8284, 7.2954, -0.32293]
+#    rms: 0.2
+
+# below are Balmer decrement ratios
+Hb:
+    bestfit: [0.0]
+    rms: 0.0
+
+Ha:
+    bestfit: [0.456366]
+    rms: 0.0
+
+Hg:
+    bestfit: [-0.327902]
+    rms: 0.0
+
