@@ -4,7 +4,7 @@ name: 'Sanders+23'
 
 lrange: [6, 8] # Lower branch solution
 # urange: [7.9207,8.9] # upper branch solution
-urange: [7.7, 8.5] # upper branch solution
+urange: [7., 8.5] # upper branch solution
 
 norm: 0.
 

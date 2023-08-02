@@ -49,20 +49,21 @@ def z_mock(z,snr,Av,n=100,method='sanders23'):
     ratio_Hg = 10**np.polyval(caldb['Hg']['bestfit'][::-1],z)
     ratio_Ha = 10**np.polyval(caldb['Ha']['bestfit'][::-1],z)
 
-    # based on OIII
+    # based on OIII = 10
     OIII = np.ones(n)*10
     Hb = OIII/ratio_OIII
     OII = Hb*ratio_OII
     Hg = Hb*ratio_Hg
     Ha = Hb*ratio_Ha
     
+    # add dust
     OIII = corrDust(OIII, 5008.24, Av, output='observed')
     OII = corrDust(OII, 3727.092, Av, output='observed')
     Hg = corrDust(Hg, 4341.692, Av, output='observed')
     Hb = corrDust(Hb, 4862.71, Av, output='observed')
     Ha = corrDust(Ha, 6563, Av, output='observed')
 
-    
+    # add the same noise
     sig = OIII/snr
     Hg += sig*np.random.randn(n)
     OIII += sig*np.random.randn(n)
@@ -95,10 +96,11 @@ def z_mock(z,snr,Av,n=100,method='sanders23'):
 
 from astropy.table import vstack
 
+
+# grid of input parameters
 snr_arr = np.arange(2,22,1)
 z_arr = np.arange(7.5,8.5,0.05)
 Av_arr = np.arange(0,2,0.5)
-# Av_arr = np.array([0,0.5,1])
 
 dic = {}
 
